@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "obj_cannonball",
   "spriteId": {
-    "name": "cannonBall",
-    "path": "sprites/cannonBall/cannonBall.yy",
+    "name": "spr_cannonball",
+    "path": "sprites/spr_cannonball/spr_cannonball.yy",
   },
   "solid": false,
   "visible": true,
@@ -25,8 +25,9 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_ship","path":"objects/obj_ship/obj_ship.yy",},},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_enemy_ship","path":"objects/obj_enemy_ship/obj_enemy_ship.yy",},},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":7,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],

@@ -13,6 +13,12 @@ else speed = 0;
 // Point Sprite towards mouse
 image_angle = point_direction(x, y, mouse_x, mouse_y) + 90;
 
+// Tilemap Collision Check
+if (tile_meeting_precise(x, y, "Tiles_Ground") = true) {
+	speed = speed / 5;
+}
+
+
 
 
 
