@@ -17,10 +17,17 @@ image_angle = point_direction(x, y, mouse_x, mouse_y) + 90;
 if (tile_meeting_precise(x, y, "Tiles_Ground") = true) {
 	speed = speed / 5;
 }
+// Keep Player in bounds
+if (x <= 99) x = 100;
+if (x >= 4894) x = 4893;
+if (y <= 99) y = 100;
+if (y >= 4894) y = 4893;
 
 
-
-
+if (hp <= 0) {
+	instance_destroy();
+	obj_game.currentPlayers--;
+}
 
 
 

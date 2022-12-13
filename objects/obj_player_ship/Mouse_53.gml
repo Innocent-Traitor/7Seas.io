@@ -1,6 +1,7 @@
 /// @description Shooting
 if (cooldown = false) {
-	instance_create_layer(x, y, "Instances", obj_cannonball,{
+	var _radians = direction * pi/180;
+	instance_create_layer(x + sprite_height/1.9 * cos(-_radians), y + sprite_height/1.9 * sin(-_radians), "Instances", obj_cannonball,{
 		speed : 10, 
 		direction : image_angle + random_range(260, 280)
 	});
