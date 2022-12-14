@@ -1,11 +1,11 @@
 /// @description Movement
 
-// If the direction target is not close enough to the image angle, keep adding the difference * 0.1
-if (dirTar != image_angle) image_angle += dirDiff * 0.1;
+var _diff = angle_difference(dirTar, image_angle + 90);
+var _sign = sign(_diff);
+var _absolute = abs(_diff);
+image_angle += min(_absolute, lerpSpeed) * _sign;
 
-
-
-
+motion_set(image_angle - 90, spd);
 
 
 // Inherit the parent event

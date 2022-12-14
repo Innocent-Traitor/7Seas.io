@@ -1,6 +1,8 @@
 /// @description Reduce Velocity
 
-if (speed >= 3) {
+
+
+if (speed >= range) {
 	speed = speed - 0.1;
 }
 else {

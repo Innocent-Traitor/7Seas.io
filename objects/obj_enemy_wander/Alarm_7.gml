@@ -1,13 +1,14 @@
 /// @description Wander Change
 
 if (tile_meeting(x, y, "Tiles_Ground") == true) {
-	direction = direction - 180;
+	direction = direction - 230;
 }
 
 dirTar = irandom(360);
-dirDiff = angle_difference(dirTar, image_angle);
+lerpSpeed = random(6);
+spd = random_range(2, 3);
 
-alarm[7] = 300;
+alarm[7] = random_range(100, 500);
 
 
 

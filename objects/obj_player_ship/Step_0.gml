@@ -2,11 +2,11 @@
 
 // Move to mouse
 if (point_distance(x, y, mouse_x, mouse_y) > 100) {
-	move_towards_point(mouse_x, mouse_y, 3)
+	move_towards_point(mouse_x, mouse_y, 3*spd)
 } else if (point_distance(x, y, mouse_x, mouse_y) > 50) {
-	move_towards_point(mouse_x, mouse_y, 2)
+	move_towards_point(mouse_x, mouse_y, 2*spd)
 } else if (point_distance(x, y, mouse_x, mouse_y) > 25) {
-	move_towards_point(mouse_x, mouse_y, 1)
+	move_towards_point(mouse_x, mouse_y, 1*spd)
 }
 else speed = 0;
 
@@ -17,11 +17,12 @@ image_angle = point_direction(x, y, mouse_x, mouse_y) + 90;
 if (tile_meeting_precise(x, y, "Tiles_Ground") = true) {
 	speed = speed / 5;
 }
-// Keep Player in bounds
-if (x <= 99) x = 100;
-if (x >= 4894) x = 4893;
-if (y <= 99) y = 100;
-if (y >= 4894) y = 4893;
+
+// Keep Ship In bounds
+x = min(x, 4894);
+x = max(x, 100);
+y = min(y, 4894);
+y = max(y, 100);
 
 
 if (hp <= 0) {
@@ -29,8 +30,26 @@ if (hp <= 0) {
 	obj_game.currentPlayers--;
 }
 
-
-
+if (keyboard_check_pressed(vk_numpad1)){
+	if (hpMax < 500) hpMax += 100;
+	else if (hpMax >= 500) hpMax = 500;
+}
+else if (keyboard_check_pressed(vk_numpad2)){
+	if (range > 1) range -= 1;
+	else if (range <= 1) range = 1;
+}
+else if (keyboard_check_pressed(vk_numpad3)){
+	if (damage < 5) damage += 1;
+	else if (damage >= 5) damage = 5;
+}
+else if (keyboard_check_pressed(vk_numpad4)){
+		if (spd < 1.5) spd += 0.1;
+		else if (spd >= 1.5) spd = 1.5;
+}
+else if (keyboard_check_pressed(vk_numpad5)){
+		if (cannons < 3) cannons += 1;
+		else if (cannons >= 3) cannons = 3;
+}
 
 
 
