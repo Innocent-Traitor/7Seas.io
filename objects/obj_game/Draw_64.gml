@@ -12,10 +12,6 @@ draw_text(1200, 160, "Spd Level: "  + string(obj_player_ship.spd));
 draw_text(1200, 180, "Cannons: " + string(obj_player_ship.cannons));
 }
 
-if (instance_exists(obj_cannonball)) {
-draw_text(100, 200, "Speed: " + string(obj_cannonball.speed));
-}
-
 
 
 

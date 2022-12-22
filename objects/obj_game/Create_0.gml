@@ -8,7 +8,7 @@ randomise();
 currentPlayers = 0;
 
 // Spawn Player
-instance_create_layer(random_range(255, 4667), random_range(255, 4667), "Instances", obj_player_ship);
+//instance_create_layer(random_range(255, 4667), random_range(255, 4667), "Instances", obj_player_ship);
 currentPlayers += 1;
 
 // State Machine Init
@@ -26,6 +26,7 @@ for(var i=currentPlayers; i<maxPlayers; i++) {
 
 // Start respawn timer
 alarm[0] = 600;
+
 
 
 

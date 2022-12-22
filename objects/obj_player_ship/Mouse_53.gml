@@ -3,13 +3,12 @@ if (cooldown = false) && (obj_sound_button.hovering = false) {
 	// Shoot the amount of cannons the player has
 	for(var i=cannons;i>0;i--) {
 		// Shoot at the front of the ship
-		var _radians = direction * pi/180;
-		instance_create_layer(x + sprite_height/1.9 * cos(-_radians), y + sprite_height/1.9 * sin(-_radians), "Instances", obj_cannonball,{
+		instance_create_layer(x + lengthdir_x(sprite_width/1.5, direction), y + lengthdir_y(sprite_width/1.5, direction), "Instances", obj_cannonball,{
 			// Variables for the cannonball
 			speed : 10, 
-			direction : image_angle + random_range(250, 290),
-			range : obj_player_ship.range,
-			damage : obj_player_ship.damage,
+			direction : direction + random_range(-10, 10),
+			range : range,
+			damage : damage,
 		});
 	}
 	// Set the cooldown

@@ -11,7 +11,8 @@ if (point_distance(x, y, mouse_x, mouse_y) > 100) {
 else speed = 0;
 
 // Point Sprite towards mouse
-image_angle = point_direction(x, y, mouse_x, mouse_y) + 90;
+image_angle = point_direction(x, y, mouse_x, mouse_y);
+direction = image_angle;
 
 // Tilemap Collision Check
 if (tile_meeting_precise(x, y, "Tiles_Ground") = true) {
