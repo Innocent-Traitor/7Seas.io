@@ -6,9 +6,14 @@
 10% Wander
 70% All
 */
+var _check = instance_nearest(x, y, obj_player_ship);	
+if (distance_to_object(_check) <= 500){
+	obj_game.currentPlayers--;
+	instance_destroy(self);
+	exit;
+}
 
-
-var _inst = instance_create_layer(random_range(255, 4667), random_range(255, 4667), "Instances", obj_enemy_hunter);
+var _inst = instance_create_layer(random_range(255, 4667), random_range(255, 4667), "Instances", obj_enemy_all);
 with(_inst) {
 	image_index = choose(0, 4, 8, 12, 16);
 	dJep2 = false; // Double Jepordary for the sprites
@@ -106,8 +111,7 @@ with(_inst) {
 	}
 	// Init Vars
 	_inst.hp = hpMax / random_range(1, 2);
-
 	_inst.cooldown = false;
 }
 
-instance_destroy();
+instance_destroy(self);

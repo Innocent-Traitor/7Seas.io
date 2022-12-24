@@ -1,8 +1,4 @@
-/// @description 
-
-
-// Inherit the parent event
-event_inherited();
+/// @description Movement and Attack
 
 // Grab the nearest instance 
 var _inst = instance_nearest_special(x, y, all);
@@ -28,3 +24,6 @@ else if (distance_to_object(_inst) <= 250) {
 	alarm[0] = 120;
 	}
 }
+
+// Inherit the parent event
+event_inherited();

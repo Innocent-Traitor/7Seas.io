@@ -5,7 +5,7 @@ var _sign = sign(_diff);
 var _absolute = abs(_diff);
 image_angle += min(_absolute, lerpSpeed) * _sign;
 
-motion_set(image_angle, spd);
+motion_set(image_angle, 2* spd);
 
 
 // Inherit the parent event

@@ -8,15 +8,8 @@ randomise();
 currentPlayers = 0;
 
 // Spawn Player
-//instance_create_layer(random_range(255, 4667), random_range(255, 4667), "Instances", obj_player_ship);
+instance_create_layer(random_range(255, 4667), random_range(255, 4667), "Instances", obj_player_ship);
 currentPlayers += 1;
-
-// State Machine Init
-enum e_state {
-	wander,
-	hunter,
-	runner
-}
 
 // Spawn Enemy
 for(var i=currentPlayers; i<maxPlayers; i++) {
