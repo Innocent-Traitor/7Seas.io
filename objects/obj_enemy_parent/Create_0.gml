@@ -1,21 +1,45 @@
 /// @description Create Enemy
 
 /* 
+Spawn Rates:
 5% Hunter
 15% Runner
 10% Wander
 70% All
+
+The parent only handles the spawning and common logic. Specific logic such as movement is
+handled by the enemy object it's self.
 */
+
+// Checks to see if the player is within 500 units
 var _check = instance_nearest(x, y, obj_player_ship);	
 if (distance_to_object(_check) <= 500){
+	//If there is a player nearby, die
 	obj_game.currentPlayers--;
 	instance_destroy(self);
 	exit;
 }
 
-var _inst = instance_create_layer(random_range(255, 4667), random_range(255, 4667), "Instances", obj_enemy_all);
+var _spawn = random_weighted(70, 10, 15, 5);
+switch (_spawn) {
+	case 0:
+		var _spawn = obj_enemy_all;
+	break;
+	case 1:
+		var _spawn = obj_enemy_wander;
+	break;
+	case 2:
+		var _spawn = obj_enemy_runner;
+	case 3:
+		var _spawn = obj_enemy_hunter;
+	break;
+}
+
+
+var _inst = instance_create_layer(random_range(255, 4667), random_range(255, 4667), "Instances", _spawn);
 with(_inst) {
 	image_index = choose(0, 4, 8, 12, 16);
+	// I don't remember what Double Jepordary means, so I just won't touch it
 	dJep2 = false; // Double Jepordary for the sprites
 	dJep3 = false; // Double Jepordary for the sprites
 	for(var i=0;i<4;i++){
@@ -109,9 +133,9 @@ with(_inst) {
 		cannons = 3;
 		break;
 	}
-	// Init Vars
+	// Init Vars for enemy object
 	_inst.hp = hpMax / random_range(1, 2);
 	_inst.cooldown = false;
 }
-
+// Destroy the parent instance, all AI Logic is handled by the actual enemy objects
 instance_destroy(self);

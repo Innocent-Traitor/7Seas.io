@@ -9,9 +9,9 @@ enum e_state {
 mode = state.wander;
 
 dirTar = irandom(360); // Pick a random direction
-lerpSpeed = random(6);
+lerpSpeed = random(6); // Lerp Speed
 
-
+// Wander Change Timer
 alarm[7] = random_range(100, 500);
 
 

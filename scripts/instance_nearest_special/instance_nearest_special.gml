@@ -1,6 +1,6 @@
 /// @func instance_nearest_special(x, y, obj)
 /// @desc Grabs the nearest instance that isn't:
-/// Itself, Cannonballs, or GUI items
+/// @desc Itself, Cannonballs, or GUI items
 /// @param real x
 /// @param real y
 /// @param id Instance
