@@ -1,15 +1,10 @@
 /// @description Create Enemy
 
 /* 
-Spawn Rates:
-5% Hunter
-15% Runner
-10% Wander
-70% All
-
-The parent only handles the spawning and common logic. Specific logic such as movement is
-handled by the enemy object it's self.
+The parent only handles the spawning and common logic. 
+Specific logic such as movement is handled by the enemy object it's self.
 */
+
 
 // Checks to see if the player is within 500 units
 var _check = instance_nearest(x, y, obj_player_ship);	
@@ -18,9 +13,12 @@ if (distance_to_object(_check) <= 500){
 	obj_game.currentPlayers--;
 	instance_destroy(self);
 	exit;
-}
+} else {
 
-var _spawn = random_weighted(70, 10, 15, 5);
+// Determines the spawn probablity
+var _spawn = random_weighted(55, 20, 25, 10);
+// Take the result of the random_weighted function,
+// Then reassign _spawn to the specific object
 switch (_spawn) {
 	case 0:
 		var _spawn = obj_enemy_all;
@@ -36,7 +34,7 @@ switch (_spawn) {
 }
 
 
-var _inst = instance_create_layer(random_range(255, 4667), random_range(255, 4667), "Instances", _spawn);
+var _inst = instance_create_layer(x, y, "Instances", _spawn);
 with(_inst) {
 	image_index = choose(0, 4, 8, 12, 16);
 	// I don't remember what Double Jepordary means, so I just won't touch it
@@ -139,3 +137,4 @@ with(_inst) {
 }
 // Destroy the parent instance, all AI Logic is handled by the actual enemy objects
 instance_destroy(self);
+}

@@ -1,7 +1,11 @@
 /// @description Death Animation
 
-// instance_create_layer(x, y, "Instances", obj_death_animation);
-// See create instance for obj_death_animation
+instance_create_layer(x, y, "Instances", obj_death_animation,{
+	sprite : spr_player_ship,
+	index : 3,
+	image_angle : image_angle
+});
+
 
 
 

@@ -51,19 +51,6 @@ switch (mode) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Inherit the parent event
 event_inherited();
 

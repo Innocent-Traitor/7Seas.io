@@ -17,13 +17,6 @@ if (cooldown = false) && (obj_sound_button.hovering = false) {
 }
 
 
-/*
-Bug: When the play is not moving and the mouse is within the ship,
-shooting a cannonball can cause the object to spawn within the
-ship, causing damage and death. Other it just shoots wildly
-*/
-
-
 
 
 

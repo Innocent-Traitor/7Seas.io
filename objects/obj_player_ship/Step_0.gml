@@ -1,14 +1,16 @@
 /// @description Movement
 
 // Move to mouse
-if (point_distance(x, y, mouse_x, mouse_y) > 100) {
-	move_towards_point(mouse_x, mouse_y, 3*spd)
-} else if (point_distance(x, y, mouse_x, mouse_y) > 50) {
-	move_towards_point(mouse_x, mouse_y, 2*spd)
-} else if (point_distance(x, y, mouse_x, mouse_y) > 25) {
-	move_towards_point(mouse_x, mouse_y, 1*spd)
+if (shopping = false) {
+	if (point_distance(x, y, mouse_x, mouse_y) > 100) {
+		move_towards_point(mouse_x, mouse_y, 3*spd)
+	} else if (point_distance(x, y, mouse_x, mouse_y) > 50) {
+		move_towards_point(mouse_x, mouse_y, 2*spd)
+	} else if (point_distance(x, y, mouse_x, mouse_y) > 25) {
+		move_towards_point(mouse_x, mouse_y, 1*spd)
+	}
+	else speed = 0;
 }
-else speed = 0;
 
 // Point Sprite towards mouse
 image_angle = point_direction(x, y, mouse_x, mouse_y);
@@ -25,12 +27,16 @@ x = max(x, 100);
 y = min(y, 4894);
 y = max(y, 100);
 
-
-if (hp <= 0) {
-	instance_destroy();
-	obj_game.currentPlayers--;
+// Merchant Interaction
+if (shoppingCooldown = false) {
+	if (distance_to_object(obj_merchant) <= 300) {
+		shopping = true;
+	//	if speed >= 0 speed -= 0.02;
+	}
 }
 
+
+// Debug Levels
 if (keyboard_check_pressed(vk_numpad1)){
 	if (hpMax < 500) hpMax += 100;
 	else if (hpMax >= 500) hpMax = 500;
